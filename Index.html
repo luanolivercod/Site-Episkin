@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPI SKIN | Clínica de Estética | Tratamentos Faciais</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* ==================================
+           Estilos CSS
+           ================================== */
+        /* Reset Básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Variáveis de Cores e Fontes */
+        :root {
+            --primary-bg: #F7F7F7;
+            --secondary-bg: #FFFFFF;
+            --dark-text: #333333;
+            --light-text: #A0A0A0;
+            --accent-color: #E7B1C6; /* Rosa Seco */
+            --poppins: 'Poppins', sans-serif;
+            --lato: 'Lato', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--lato);
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--primary-bg);
+            padding-top: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--poppins);
+            color: var(--dark-text);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #d19aae;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(231, 177, 198, 0.4);
+        }
+
+        .cta-button:hover {
+            background-color: #d19aae;
+            transform: translateY(-2px);
+        }
+
+        /* Header fixo */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--secondary-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo img {
+            max-width: 150px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .main-nav ul li {
+            margin-left: 25px;
+        }
+
+        .main-nav ul li a:not(.cta-button) {
+            color: var(--dark-text);
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav ul li a:not(.cta-button):hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3); /* Sobreposição escura */
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        /* Seção Sobre Nós */
+        .about-section {
+            background-color: var(--secondary-bg);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-content img {
+            width: 500px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Seção de Serviços */
+        .services-section {
+            background-color: var(--primary-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--secondary-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Seção de Resultados */
+        .results-section {
+            background-color: var(--secondary-bg);
+        }
+
+        .results-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .result-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .result-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Seção do Blog */
+        .blog-section {
+            background-color: var(--primary-bg);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-post-card {
+            background-color: var(--secondary-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-post-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-post-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-post-card .content {
+            padding: 20px;
+        }
+
+        .blog-post-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Rodapé */
+        .main-footer {
+            background-color: var(--dark-text);
+            color: var(--light-text);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .main-footer .footer-links a {
+            color: var(--light-text);
+            margin: 0 10px;
+        }
+
+        .main-footer .social-links a {
+            color: var(--accent-color);
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .main-footer .social-links a:hover {
+            color: white;
+        }
+
+        /* Botão flutuante do WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+        }
+
+        .whatsapp-float a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float a:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-content img {
+                width: 100%;
+            }
+            .main-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="#inicio" class="logo">
+                <img src="https://via.placeholder.com/150x40.png?text=EPI+SKIN" alt="Logo EPI SKIN">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#resultados">Resultados</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero-section" style="background-image: url('https://images.unsplash.com/photo-1557551000-85f8ed61a46e?q=80&w=2670&auto=format&fit=crop');">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>EPI SKIN: A Ciência da Beleza, em Sua Pele.</h1>
+                    <p>Especialistas em tratamentos faciais personalizados para uma pele saudável, bonita e radiante.</p>
+                    <a href="https://api.whatsapp.com/send?phone=5554981250382" target="_blank" class="cta-button">Agendar Avaliação</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre" class="about-section">
+            <div class="container">
+                <h2>Onde a Ciência Encontra o Cuidado</h2>
+                <div class="about-content">
+                    <img src="https://images.unsplash.com/photo-1599878143419-798836512686?q=80&w=2670&auto=format&fit=crop" alt="Foto da clínica EPI SKIN">
+                    <div class="text-content">
+                        <p>Na EPI SKIN, somos apaixonados pela saúde da pele. Nossa missão é oferecer tratamentos faciais de alta qualidade, baseados em evidências científicas e adaptados às necessidades individuais de cada cliente.</p>
+                        <p>Nossa equipe de especialistas, com anos de experiência, está pronta para guiar você em uma jornada de autocuidado, proporcionando resultados notáveis e duradouros com segurança e conforto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="services-section">
+            <div class="container">
+                <h2>Nossos Tratamentos Faciais</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fa-solid fa-face-flushed"></i>
+                        <h3>Limpeza de Pele</h3>
+                        <p>Procedimento que remove cravos e impurezas, desobstruindo os poros para uma pele mais limpa e saudável.</p>
+                        <a href="https://api.whatsapp.com/send?phone=5554981250382" target="_blank" class="link-saiba-mais">Saiba Mais</a>
+                    </div>
+                    <div class="service-card">
+                        <i class="fa-solid fa-flask"></i>
+                        <h3>Peeling Químico</h3>
+                        <p>Utiliza ácidos para esfoliar a camada superficial da pele, promovendo a renovação celular e tratando manchas e rugas finas.</p>
+                        <a href="https://api.whatsapp.com/send?phone=5554981250382" target="_blank" class="link-saiba-mais">Saiba Mais</a>
+                    </div>
+                    <div class="service-card">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                        <h3>Microagulhamento Labial</h3>
+                        <p>Estimula a produção de colágeno nos lábios, melhorando o contorno, a hidratação e a coloração de forma natural.</p>
+                        <a href="https://api.whatsapp.com/send?phone=5554981250382" target="_blank" class="link-saiba-mais">Saiba Mais</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resultados" class="results-section">
+            <div class="container">
+                <h2>A Transformação em Imagens</h2>
+                <div class="results-gallery">
+                    <div class="result-item">
+                        <img src="https://images.unsplash.com/photo-1544971485-3b1717469a45?q=80&w=2670&auto=format&fit=crop" alt="Resultado de tratamento facial">
+                    </div>
+                    <div class="result-item">
+                        <img src="https://images.unsplash.com/photo-1520624021703-e60d05156f6f?q=80&w=2670&auto=format&fit=crop" alt="Resultado de tratamento facial">
+                    </div>
+                    <div class="result-item">
+                        <img src="https://images.unsplash.com/photo-1534720993073-61b60155b46e?q=80&w=2670&auto=format&fit=crop" alt="Resultado de microagulhamento">
+                    </div>
+                    <div class="result-item">
+                        <img src="https://images.unsplash.com/photo-1526418856515-d910de192931?q=80&w=2670&auto=format&fit=crop" alt="Resultado de peeling">
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 30px; font-style: italic; color: var(--light-text);">
+                    *Os resultados podem variar de pessoa para pessoa. Fotos meramente ilustrativas.
+                </p>
+            </div>
+        </section>
+
+        <section id="blog" class="blog-section">
+            <div class="container">
+                <h2>Dicas e Insights para sua Pele</h2>
+                <div class="blog-grid">
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1556742512-5ec213d2894b?q=80&w=2670&auto=format&fit=crop" alt="Mulher cuidando da pele">
+                        <div class="content">
+                            <h3>Rotina de Skincare Essencial para o Dia a Dia</h3>
+                            <p>Descubra os 5 passos básicos para manter sua pele saudável e radiante, mesmo com a correria do dia a dia.</p>
+                            <a href="rotina-skincare-essencial.html" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1608462744385-d6023247063f?q=80&w=2670&auto=format&fit=crop" alt="Tecnologia facial">
+                        <div class="content">
+                            <h3>Microagulhamento: O que é e por que vale a pena?</h3>
+                            <p>Entenda os benefícios do microagulhamento para rejuvenescimento, tratamento de cicatrizes e melhora da textura da pele.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1620760436894-3a9b1c7b8c7e?q=80&w=2670&auto=format&fit=crop" alt="Alimentos para pele">
+                        <div class="content">
+                            <h3>O Papel da Alimentação na Saúde da Pele Facial</h3>
+                            <p>Conheça os superalimentos que você deve incluir na sua dieta para nutrir sua pele de dentro para fora.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1588701967204-c5a709289299?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma pessoa em um consultório">
+                        <div class="content">
+                            <h3>Peeling Químico: A Escolha Certa para Sua Pele?</h3>
+                            <p>Desvende os tipos de peeling, seus benefícios e como escolher o tratamento ideal para o seu objetivo.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1574360980459-40e115049c66?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma pessoa em um consultório">
+                        <div class="content">
+                            <h3>Cuidados Essenciais para Peles Oleosas e Acneicas</h3>
+                            <p>Guia completo com dicas e tratamentos para controlar a oleosidade e combater a acne de forma eficaz.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1549241520-4351000632a8?q=80&w=2672&auto=format&fit=crop" alt="Imagem de um gráfico de crescimento">
+                        <div class="content">
+                            <h3>Os Benefícios da Limpeza de Pele Profissional</h3>
+                            <p>Por que a limpeza de pele vai muito além da estética e é crucial para a saúde do seu rosto.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1574360980459-40e115049c66?q=80&w=2670&auto=format&fit=crop" alt="Imagem de duas pessoas em uma reunião">
+                        <div class="content">
+                            <h3>Como o Microagulhamento Labial Pode Realçar seu Sorriso</h3>
+                            <p>Descubra como um tratamento não invasivo pode hidratar, dar volume e definir o contorno dos lábios.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1588701967204-c5a709289299?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma pessoa em um consultório">
+                        <div class="content">
+                            <h3>Pele Jovem e Saudável: Dicas para Prevenir o Envelhecimento</h3>
+                            <p>Conheça os segredos e as práticas diárias para manter a pele jovem, luminosa e livre de rugas.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1629815413348-132d75fdf8b1?q=80&w=2670&auto=format&fit=crop" alt="Imagem de um gráfico de crescimento">
+                        <div class="content">
+                            <h3>Guia Definitivo de Protetor Solar para Todos os Tipos de Pele</h3>
+                            <p>O protetor solar é o seu melhor amigo. Saiba como escolher o fator de proteção ideal e a importância do seu uso diário.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1579684385108-a461e1a5f643?q=80&w=2670&auto=format&fit=crop" alt="Imagem de telemedicina">
+                        <div class="content">
+                            <h3>O Segredo por Trás de uma Pele de Porcelana: Peeling Químico</h3>
+                            <p>Descubra como esse tratamento pode uniformizar a textura, clarear manchas e dar um glow incrível.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582297120790-2c7009c73367?q=80&w=2670&auto=format&fit=crop" alt="Imagem de equipe colaborando">
+                        <div class="content">
+                            <h3>Como a Limpeza de Pele Profunda Melhora a Absorção de Cosméticos</h3>
+                            <p>Seus cremes e séruns não estão funcionando? A resposta pode estar na limpeza de pele. Entenda por quê.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de prontuários médicos">
+                        <div class="content">
+                            <h3>Os Mitos e Verdades sobre os Peeling Químicos</h3>
+                            <p>Quebra-cabeças e receios comuns sobre os peeling químicos são desvendados neste artigo.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de sala de cirurgia">
+                        <div class="content">
+                            <h3>Tudo o que Você Precisa Saber Antes de Fazer um Peeling</h3>
+                            <p>Um guia completo com o pré e pós-cuidado essenciais para garantir o melhor resultado do seu peeling.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma reunião de equipe">
+                        <div class="content">
+                            <h3>A Verdadeira Importância da Hidratação para a Saúde da Pele</h3>
+                            <p>A hidratação é a base de tudo. Saiba como hidratar sua pele da forma correta para evitar problemas.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1621252601249-16a70a049495?q=80&w=2670&auto=format&fit=crop" alt="Imagem de um médico interagindo com paciente">
+                        <div class="content">
+                            <h3>Vitamina C na Rotina de Skincare: Por que Usar?</h3>
+                            <p>Conheça os benefícios da Vitamina C para clarear, proteger e rejuvenescer a pele. Um ingrediente essencial.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1599878143419-798836512686?q=80&w=2670&auto=format&fit=crop" alt="Imagem de tecnologia médica">
+                        <div class="content">
+                            <h3>Guia para Iniciantes: Os Primeiros Passos no Mundo do Skincare</h3>
+                            <p>Começando a cuidar da pele agora? Este guia é para você, com tudo o que precisa saber para começar.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1581092495790-2c7009c73367?q=80&w=2670&auto=format&fit=crop" alt="Imagem de um profissional de saúde">
+                        <div class="content">
+                            <h3>Lábios Rachados? Descubra o Poder do Microagulhamento Labial</h3>
+                            <p>Um tratamento inovador para revitalizar lábios secos e sem vida, restaurando hidratação e volume.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582297120790-2c7009c73367?q=80&w=2670&auto=format&fit=crop" alt="Imagem de um painel de indicadores">
+                        <div class="content">
+                            <h3>Benefícios do Ácido Hialurônico na Sua Rotina de Beleza</h3>
+                            <p>Um dos ingredientes mais populares da estética. Saiba como o ácido hialurônico age na hidratação da pele.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Como a Limpeza de Pele Ajuda a Combater a Oleosidade</h3>
+                            <p>Aprenda a controlar a oleosidade e a brilho excessivo do rosto com os cuidados certos e a limpeza profissional.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582752119054-0b8d5a11c195?q=80&w=2670&auto=format&fit=crop" alt="Imagem de prontuários médicos">
+                        <div class="content">
+                            <h3>O Verão e a Pele: Cuidados Especiais para a Estação</h3>
+                            <p>Dicas indispensáveis para proteger e manter a saúde da sua pele durante os dias mais quentes do ano.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Microagulhamento: Solução para Cicatrizes de Acne</h3>
+                            <p>Conheça o tratamento que promove a produção de colágeno, suavizando as marcas deixadas pela acne.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Alimentação e Pele: O que Comer para uma Pele Radiante</h3>
+                            <p>Aprenda sobre os alimentos que combatem o envelhecimento, inflamações e melhoram a saúde da pele.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Como Se Livrar das Manchas de Sol no Rosto</h3>
+                            <p>Tratamentos e rotinas de cuidados para combater as manchas causadas pelo sol e uniformizar o tom da pele.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Ácidos na Rotina de Skincare: Guia Completo</h3>
+                            <p>Desvende o universo dos ácidos (hialurônico, glicólico, salicílico) e como usá-los com segurança.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Hidratação Labial: Por que o Microagulhamento é a Solução</h3>
+                            <p>Descubra como o microagulhamento labial vai além do preenchimento, garantindo lábios mais hidratados e saudáveis.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Como Se Preparar para uma Sessão de Peeling Químico</h3>
+                            <p>Saiba o que fazer antes e depois do peeling para garantir o melhor resultado do seu peeling.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Cravos e Espinhas: Por que a Limpeza de Pele é Essencial</h3>
+                            <p>Entenda como a extração profissional pode resolver o problema de cravos e espinhas e prevenir novas inflamações.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Microagulhamento Labial: O Segredo de Lábios Naturais</h3>
+                            <p>Diferente de preenchimentos, este tratamento realça a beleza natural dos lábios. Descubra como funciona.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>A Importância da Avaliação Facial Personalizada</h3>
+                            <p>Por que uma avaliação profissional é o primeiro e mais importante passo para um tratamento de sucesso.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Como a Limpeza de Pele Ajuda na Redução de Poros</h3>
+                            <p>Aprenda a controlar a aparência dos poros dilatados com a limpeza de pele profissional e cuidados em casa.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Guia para o Pós-Peeling: Cuidados essenciais para a pele</h3>
+                            <p>Aprenda os cuidados necessários após um peeling químico para garantir a cicatrização e os melhores resultados.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Microagulhamento para Olheiras: É Possível?</h3>
+                            <p>Descubra se o microagulhamento pode ser a solução para amenizar o aspecto de cansaço e a coloração escura das olheiras.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Os Mitos e Verdades sobre a Limpeza de Pele em Casa</h3>
+                            <p>É possível ter uma limpeza de pele profunda em casa? Descubra o que é mito e o que é verdade.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Peeling de Diamante vs. Peeling Químico: Qual a Diferença?</h3>
+                            <p>Entenda as diferenças entre os dois tratamentos e qual deles é o mais indicado para o seu tipo de pele.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>A Ciência por Trás do Microagulhamento Labial</h3>
+                            <p>Como a técnica promove o rejuvenescimento celular e a revitalização dos lábios de forma natural.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Os Maiores Erros no Skincare que Podem Danificar a Pele</h3>
+                            <p>Conheça os erros mais comuns na rotina de beleza e como evitá-los para proteger a saúde da sua pele.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Peeling Químico para Acne: Tratamento Eficaz e Seguro</h3>
+                            <p>Descubra como o peeling pode ser um aliado no combate à acne ativa e na prevenção de novas lesões.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Hidratação Profunda: A Solução para Peles Secas e Desidratadas</h3>
+                            <p>Conheça as melhores técnicas e ingredientes para combater a secura e restaurar a barreira protetora da pele.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Microagulhamento Labial vs. Batom: Qual a Melhor Escolha?</h3>
+                            <p>Compare os resultados do microagulhamento labial com o uso de cosméticos e descubra a opção ideal para você.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>O Segredo para um Skincare Minimalista e Eficaz</h3>
+                            <p>Menos é mais. Aprenda a montar uma rotina de cuidados simples e poderosa, com os produtos certos.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Limpeza de Pele em Adolescentes: Quando e Como Fazer</h3>
+                            <p>Guia para pais e adolescentes sobre a importância da limpeza de pele na fase de maior produção de sebo.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Peeling para Manchas: Diga Adeus ao Melasma</h3>
+                            <p>Saiba como o peeling químico, combinado com outros tratamentos, pode ser eficaz no combate ao melasma.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Microagulhamento Labial: O Tratamento das Celebridades</h3>
+                            <p>Descubra por que o microagulhamento labial se tornou uma tendência entre quem busca lábios perfeitos e naturais.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Limpeza de Pele e seus Benefícios para Peles Sensíveis</h3>
+                            <p>É possível fazer limpeza de pele em peles sensíveis? Conheça os cuidados e produtos específicos para este tipo de pele.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Cuidados com a Pele Antes de Dormir: Rotina Noturna Perfeita</h3>
+                            <p>Descubra a importância de uma rotina noturna de skincare para a regeneração da pele e a prevenção de sinais da idade.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Peeling Químico em Verão: É Possível?</h3>
+                            <p>Mitos e verdades sobre fazer peeling químico na estação mais quente do ano. Conheça as precauções necessárias.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Lábios com Linhas de Expressão? Microagulhamento Labial pode ajudar</h3>
+                            <p>Saiba como este tratamento pode suavizar as linhas finas ao redor da boca, promovendo um aspecto mais jovem.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Por que a Limpeza de Pele é o Primeiro Passo para Qualquer Tratamento</h3>
+                            <p>Entenda por que uma pele limpa e preparada é essencial para a eficácia de peelings e outros procedimentos.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Sérum Facial: Como Escolher o Ideal para Sua Pele</h3>
+                            <p>Um guia para você entender os diferentes tipos de séruns e como eles podem potencializar sua rotina de skincare.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Peeling para Cicatrizes: O Adeus às Marcas Indesejadas</h3>
+                            <p>Conheça o papel do peeling químico na melhora da aparência de cicatrizes de acne e outras imperfeições.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Rotina de Skincare para Peles Maduras: Como Reverter Sinais da Idade</h3>
+                            <p>Dicas e tratamentos focados em hidratação, firmeza e redução de rugas para peles maduras.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Limpeza de Pele em Peles Masculinas: Cuidados Especiais</h3>
+                            <p>Entenda as particularidades da pele masculina e a importância de uma rotina de limpeza adequada para homens.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Como o Peeling Ajuda a Melhorar a Textura da Pele</h3>
+                            <p>Descubra como a esfoliação controlada pode suavizar a pele, deixando-a mais lisa e uniforme.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Microagulhamento Labial e o Combate ao Ressecamento</h3>
+                            <p>Saiba como este tratamento hidrata profundamente os lábios, combatendo o ressecamento e as rachaduras.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Máscaras Faciais: Como Escolher a Certa para Seu Tipo de Pele</h3>
+                            <p>Um guia completo sobre os diferentes tipos de máscaras faciais e seus benefícios para cada tipo de pele.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Os Segredos de uma Limpeza de Pele Eficaz e Sem Marcas</h3>
+                            <p>Conheça as técnicas profissionais para garantir uma limpeza profunda sem agredir ou deixar marcas na pele.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Peeling de Cristal vs. Peeling de Diamante: Qual é Melhor?</h3>
+                            <p>Um comparativo entre duas técnicas de peeling para que você saiba qual é a mais indicada para o seu caso.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Microagulhamento Labial: Recuperando a Juventude dos Lábios</h3>
+                            <p>Saiba como o tratamento ajuda a revitalizar a região labial, devolvendo o volume e a firmeza perdidos.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>10 Mitos e Verdades sobre a Limpeza de Pele Profissional</h3>
+                            <p>Será que a limpeza de pele dói? Descubra a resposta para essa e outras perguntas comuns.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Como o Peeling Químico Ajuda a Reduzir a Oleosidade da Pele</h3>
+                            <p>Entenda como a ação dos ácidos pode controlar a produção de sebo e melhorar a aparência da pele oleosa.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Microagulhamento para Poros: O Fim dos Poros Dilatados</h3>
+                            <p>Descubra como a técnica pode auxiliar na redução dos poros dilatados, deixando a pele mais uniforme.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>O Segredo da Pele Lisa: Conheça os Benefícios do Peeling</h3>
+                            <p>Um guia completo sobre como o peeling quimíco pode ajudar a ter uma pele mais lisa e macia.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Tudo sobre Limpeza de Pele: Pré e Pós Cuidados Essenciais</h3>
+                            <p>Saiba o que fazer antes e depois de uma sessão de limpeza de pele para garantir os melhores resultados.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Microagulhamento Labial: O Guia de Pós-Procedimento</h3>
+                            <p>Descubra os cuidados necessários após uma sessão de microagulhamento labial para uma recuperação rápida.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>A Importância do Peeling no Combate a Sinais de Envelhecimento</h3>
+                            <p>Saiba como o peeling quimico pode ser um aliado poderoso para reduzir linhas finas e rugas.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Limpeza de Pele: Por Que Não Fazer em Casa?</h3>
+                            <p>Entenda os riscos de tentar fazer a limpeza de pele em casa e a importância de um profissional.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Peeling e Fotoproteção: Uma Dupla Essencial</h3>
+                            <p>Aprenda por que o uso de protetor solar é indispensável após um tratamento com peeling.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Microagulhamento Labial: Para Quem é Indicado?</h3>
+                            <p>Descubra se o microagulhamento labial é o tratamento ideal para você e seus objetivos estéticos.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>O Poder da Limpeza de Pele para Peles Ressecadas</h3>
+                            <p>Entenda como a remoção de células mortas pode ajudar a sua pele a absorver melhor os hidratantes.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Peeling Químico: Benefícios Além da Estética</h3>
+                            <p>Além da beleza, saiba como o peeling contribui para a saúde da pele, tratando problemas como acne.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Microagulhamento Labial: O Fim dos Lábios Sem Vida</h3>
+                            <p>Conheça o tratamento que revitaliza a cor e o aspecto dos lábios, deixando-os mais corados e saudáveis.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Rotina Pós-Limpeza de Pele: Maximizando os Resultados</h3>
+                            <p>Os cuidados em casa após a limpeza de pele são essenciais para manter o rosto limpo e radiante.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Peeling Químico em Peles Morenas e Negras: Cuidados Especiais</h3>
+                            <p>Saiba como o peeling pode ser adaptado para diferentes tons de pele, evitando riscos de manchas.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Microagulhamento Labial para Lábios Finos: Uma Alternativa Natural</h3>
+                            <p>Descubra como o tratamento pode dar volume sutil e natural aos lábios, sem a necessidade de preenchimentos.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Limpeza de Pele: O Fim do "Efeito Rebote" na Oleosidade</h3>
+                            <p>Aprenda a forma correta de limpar a pele para evitar o efeito rebote e a produção excessiva de sebo.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Peeling e a Renovação Celular: O Segredo de uma Pele Jovem</h3>
+                            <p>Descubra como o peeling estimula a renovação celular, revelando uma pele mais nova e radiante.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Guia Definitivo do Peeling: O Que Esperar de Cada Sessão</h3>
+                            <p>Saiba o que acontece durante uma sessão de peeling, desde o pré-procedimento até a recuperação.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Cuidados com a Pele em Dias Frios: Dicas Essenciais</h3>
+                            <p>O clima frio exige cuidados específicos. Aprenda a proteger sua pele da secura e do ressecamento.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Limpeza de Pele em Peles com Rosácea: É Seguro?</h3>
+                            <p>Entenda como a limpeza de pele pode ser adaptada para peles com rosácea, com os cuidados e produtos certos.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Microagulhamento Labial e a Beleza Natural dos Lábios</h3>
+                            <p>Saiba como o tratamento resgata a beleza natural dos lábios, deixando-os mais bonitos e saudáveis.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Peeling para Hiperpigmentação: Solução para Manchas Escuras</h3>
+                            <p>Descubra como o peeling pode ser uma ferramenta eficaz no combate a manchas escuras na pele.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Limpeza de Pele para Cicatrizes de Acne: Como Funciona?</h3>
+                            <p>Entenda como a limpeza de pele pode auxiliar na melhora da aparência de cicatrizes e irregularidades.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Peeling Químico para Rejuvenescimento: O Segredo da Eternidade</h3>
+                            <p>Conheça os segredos do peeling quimico e como ele ajuda a ter uma pele mais jovem.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Lábios Rachados: O Resgate com Microagulhamento Labial</h3>
+                            <p>Saiba como este tratamento pode ser a solução para lábios ressecados e com rachaduras.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>A Verdadeira Importância do Pós-Peeling na Sua Pele</h3>
+                            <p>Os cuidados pós-peeling são cruciais para a recuperação da pele e a manutenção dos resultados.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Limpeza de Pele para Peles Com Cravos e Espinhas</h3>
+                            <p>Entenda como a remoção correta de cravos e espinhas pode melhorar a aparência da pele.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Peeling para Manchas de Acne: Diga Adeus às Marcas</h3>
+                            <p>Saiba como o peeling quimico pode auxiliar no tratamento das manchas deixadas pela acne.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>Microagulhamento Labial e o Aumento Natural do Volume</h3>
+                            <p>Entenda como o microagulhamento labial pode ser uma alternativa natural e sutil ao preenchimento labial.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                    <article class="blog-post-card">
+                        <img src="https://images.unsplash.com/photo-1582751480088-e9f0d1a499b7?q=80&w=2670&auto=format&fit=crop" alt="Imagem de uma enfermeira com tablet">
+                        <div class="content">
+                            <h3>O Papel da Limpeza de Pele na Prevenção do Envelhecimento</h3>
+                            <p>Uma pele limpa e desobstruída absorve melhor os ativos e previne os sinais da idade.</p>
+                            <a href="#" class="link-saiba-mais">Leia mais</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#inicio">Início</a> |
+                <a href="#sobre">Sobre</a> |
+                <a href="#servicos">Serviços</a> |
+                <a href="#resultados">Resultados</a> |
+                <a href="#blog">Blog</a>
+            </div>
+            <p>&copy; 2024 EPI SKIN. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="whatsapp-float">
+        <a href="https://api.whatsapp.com/send?phone=5554981250382" target="_blank" title="Fale pelo WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+</body>
+</html>
