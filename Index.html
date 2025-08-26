@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPI Skin | Estética Avançada</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        /* Importação de fontes do Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap');
+
+        /* Reset básico e variáveis */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #5d4037; /* Marrom escuro */
+            --secondary-color: #a1887f; /* Tom de marrom mais claro */
+            --accent-color: #e0b4a4; /* Tom rosado/pêssego */
+            --light-color: #f5f5f5; /* Fundo claro */
+            --dark-color: #333; /* Texto escuro */
+            --font-family: 'Poppins', sans-serif;
+            --logo-font: 'Playfair Display', serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .bg-light {
+            background-color: var(--light-color);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+        }
+
+        /* --- Cabeçalho --- */
+        header {
+            background-color: #fff;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-family: var(--logo-font);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            list-style: none;
+            padding: 10px 0;
+            border-radius: 5px;
+            min-width: 200px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+        }
+
+        .dropdown-menu a {
+            padding: 10px 20px;
+            display: block;
+            white-space: nowrap;
+            color: var(--primary-color);
+        }
+
+        .btn-agendar {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-agendar:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* --- Banner Principal Melhorado --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('http://googleusercontent.com/file_content/1000298115.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInSlideUp 1.5s forwards ease-out;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-family: var(--logo-font);
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #fff;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .btn-cta {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            background-color: #d1a89c;
+        }
+        
+        /* --- Seção de Boas-Vindas Otimizada --- */
+        .welcome-box {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #fff;
+        }
+
+        .welcome-box h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .welcome-box h2::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* --- Seção de Serviços Otimizada --- */
+        .services h2,
+        .diferenciais h2,
+        .depoimentos h2,
+        .galeria h2,
+        .contato h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+        }
+
+        .btn-saiba-mais {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid var(--primary-color);
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .btn-saiba-mais:hover {
+            color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        /* --- Seção de Diferenciais --- */
+        .diferenciais-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .diferencial-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .diferencial-item i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            flex-shrink: 0;
+        }
+
+        .diferencial-text h3 {
+            margin-bottom: 5px;
+        }
+
+        /* --- Seção de Depoimentos Otimizada --- */
+        .depoimentos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .depoimento-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .depoimento-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .depoimento-card span {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        /* --- Seção de Galeria (Antes e Depois) --- */
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .galeria-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .galeria-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .galeria-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0,0,0,0.6);
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .galeria-item:hover .galeria-caption {
+            transform: translateY(0);
+        }
+
+        /* --- CTA Final --- */
+        .cta-section {
+            text-align: center;
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 60px 20px;
+        }
+
+        .cta-section h2 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        /* --- Botão Flutuante do WhatsApp --- */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+        }
+
+        .whatsapp-button a {
+            display: block;
+            background-color: #25D366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 2.5rem;
+            line-height: 60px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-button a:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- Rodapé --- */
+        footer {
+            background-color: var(--dark-color);
+            color: #fff;
+            padding: 60px 0;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .logo-footer h1 {
+            font-family: var(--logo-font);
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            color: #fff;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-col p {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        .footer-col p i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* --- Media Queries (Responsividade) --- */
+        @media (max-width: 992px) {
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav {
+                margin: 20px 0;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                margin: 0 15px 10px;
+            }
+            .btn-agendar {
+                margin-top: 10px;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            .section-padding {
+                padding: 60px 0;
+            }
+            .welcome-box h2,
+            .services h2,
+            .diferenciais h2,
+            .depoimentos h2,
+            .cta-section h2,
+            .galeria h2,
+            .contato h2 {
+                font-size: 2rem;
+            }
+            .footer-col {
+                min-width: 100%;
+                text-align: center;
+            }
+            .footer-col h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .footer-col p, .footer-col ul {
+                text-align: center;
+            }
+            .whatsapp-button {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .btn-agendar, .btn-cta {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>EPI SKIN</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li class="dropdown">
+                        <a href="#tratamentos">Tratamentos <i class="fas fa-caret-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#limpeza-pele">Limpeza de Pele</a></li>
+                            <li><a href="#peeling">Peeling</a></li>
+                            <li><a href="#hidragloss">Hidragloss Lips</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <a href="https://wa.me/5554981250382" class="btn-agendar">Agende Agora</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Sua pele transformada. Sua autoestima renovada.</h1>
+                <p>Na EPI Skin, combinamos ciência e arte para oferecer tratamentos faciais e corporais de alta performance. Descubra o plano ideal para você.</p>
+                <a href="https://wa.me/5554981250382" class="btn-cta">Agendar Minha Avaliação Gratuita</a>
+            </div>
+        </section>
+
+        <section id="sobre" class="section-padding">
+            <div class="container">
+                <div class="welcome-box">
+                    <h2>Bem-vindo à EPI Skin</h2>
+                    <p>Na EPI Skin, acreditamos que a verdadeira beleza vem de uma pele saudável e bem cuidada. Nossa missão é oferecer tratamentos de ponta com tecnologia avançada e uma abordagem individualizada, garantindo que cada cliente receba os cuidados que precisa para atingir seus objetivos estéticos. Deixe-nos cuidar de você e redescobrir a confiança em sua própria pele.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tratamentos" class="services section-padding">
+            <div class="container">
+                <h2>Seus Problemas, Nossas Soluções</h2>
+                <div class="service-cards">
+                    <div class="card" id="limpeza-pele">
+                        <i class="fas fa-spray-can-sparkles"></i>
+                        <h3>Pele com Cravos e Oleosidade?</h3>
+                        <p>Nossa Limpeza de Pele profunda remove impurezas, desobstrui os poros e devolve o brilho e a vitalidade à sua pele.</p>
+                        <a href="https://wa.me/5554981250382" class="btn-saiba-mais">Quero Agendar</a>
+                    </div>
+                    <div class="card" id="peeling">
+                        <i class="fas fa-face-smile-beam"></i>
+                        <h3>Manchas e Marcas de Expressão?</h3>
+                        <p>O Peeling para renovação celular melhora a textura da pele e suaviza manchas e linhas finas, revelando um rosto uniforme.</p>
+                        <a href="https://wa.me/5554981250382" class="btn-saiba-mais">Quero Agendar</a>
+                    </div>
+                    <div class="card" id="hidragloss">
+                        <i class="fas fa-lips"></i>
+                        <h3>Lábios Ressecados e Sem Brilho?</h3>
+                        <p>A hidratação profunda do Hidragloss Lips revitaliza e nutre seus lábios, deixando-os macios e com um volume natural.</p>
+                        <a href="https://wa.me/5554981250382" class="btn-saiba-mais">Quero Agendar</a>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-spa"></i>
+                        <h3>Flacidez e Celulite no Corpo?</h3>
+                        <p>Reduza medidas, combata a celulite e melhore a firmeza com nossos protocolos corporais personalizados.</p>
+                        <a href="https://wa.me/5554981250382" class="btn-saiba-mais">Quero Agendar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="diferenciais" class="section-padding bg-light">
+            <div class="container">
+                <h2>Por que a EPI Skin é a sua melhor escolha?</h2>
+                <div class="diferenciais-list">
+                    <div class="diferencial-item">
+                        <i class="fas fa-microchip"></i>
+                        <div class="diferencial-text">
+                            <h3>Tecnologia de Ponta</h3>
+                            <p>Equipamentos de última geração para garantir resultados eficazes e seguros em cada sessão.</p>
+                        </div>
+                    </div>
+                    <div class="diferencial-item">
+                        <i class="fas fa-user-nurse"></i>
+                        <div class="diferencial-text">
+                            <h3>Profissionais Especializados</h3>
+                            <p>Equipe formada por esteticistas e biomédicos altamente qualificados e em constante aprimoramento.</p>
+                        </div>
+                    </div>
+                    <div class="diferencial-item">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <div class="diferencial-text">
+                            <h3>Atendimento Personalizado</h3>
+                            <p>Desenvolvemos um plano de tratamento exclusivo, focado nas suas necessidades e objetivos.</p>
+                        </div>
+                    </div>
+                    <div class="diferencial-item">
+                        <i class="fas fa-couch"></i>
+                        <div class="diferencial-text">
+                            <h3>Ambiente Acolhedor</h3>
+                            <p>Um espaço tranquilo e relaxante, pensado para que sua experiência de cuidado seja única.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeria" class="section-padding">
+            <div class="container">
+                <h2>Resultados Reais. Transformações Confiáveis.</h2>
+                <p style="text-align: center; margin-bottom: 40px;">(Adicione aqui fotos de Antes e Depois para provar a qualidade dos seus serviços)</p>
+                <div class="galeria-grid">
+                    </div>
+            </div>
+        </section>
+
+        <section id="depoimentos" class="section-padding">
+            <div class="container">
+                <h2>Veja quem já transformou a pele com a gente</h2>
+                <div class="depoimentos-container">
+                    <div class="depoimento-card">
+                        <p>"O tratamento foi incrível! A equipe da EPI Skin é muito atenciosa e o resultado superou minhas expectativas."</p>
+                        <span>- Maria S.</span>
+                    </div>
+                    <div class="depoimento-card">
+                        <p>"Fiz a harmonização facial e amei! Os profissionais são muito cuidadosos e o ambiente é maravilhoso."</p>
+                        <span>- João F.</span>
+                    </div>
+                    <div class="depoimento-card">
+                        <p>"A limpeza de pele me deixou com uma sensação de renovação. Recomendo de olhos fechados!"</p>
+                        <span>- Camila P.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta" class="cta-section">
+            <div class="container">
+                <h2>Sua pele merece esse cuidado.</h2>
+                <p>Não espere mais para se sentir confiante e com a pele que você sempre sonhou. Agende sua avaliação gratuita.</p>
+                <a href="https://wa.me/5554981250382" class="btn-cta">Agende Agora</a>
+            </div>
+        </section>
+        
+        <section id="contato" class="section-padding">
+            <div class="container contato-content">
+                <h2>Fale Conosco</h2>
+                <p>Entre em contato para agendar sua avaliação gratuita ou tirar suas dúvidas.</p>
+                <div class="contato-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Rua Bento Gonçalves, nº 1759, sala 202, Centro - Caxias do Sul</p>
+                    <p><i class="fas fa-phone"></i> (54) 98125-0382</p>
+                    <p><i class="fas fa-envelope"></i> contato@episkin.com.br</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="whatsapp-button">
+        <a href="https://wa.me/5554981250382" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-col">
+                <div class="logo-footer">
+                    <h1>EPI SKIN</h1>
+                </div>
+                <p>&copy; 2024 EPI Skin. Todos os direitos reservados.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Menu</h4>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#tratamentos">Tratamentos</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Rua Bento Gonçalves, nº 1759, sala 202, Centro - Caxias do Sul</p>
+                <p><i class="fas fa-phone"></i> (54) 98125-0382</p>
+                <p><i class="fas fa-envelope"></i> contato@episkin.com.br</p>
+            </div>
+            <div class="footer-col">
+                <h4>Redes Sociais</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Não há necessidade de carrossel de depoimentos fixo, pois agora a seção é com cards estáticos.
+            // O código JavaScript para o carrossel foi removido para simplificar.
+        });
+    </script>
+</body>
+</html>
